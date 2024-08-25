@@ -20,3 +20,7 @@
 - Dashboard'da Bazı İstatistikler Ve Bu İstatistiklerin SignalR İle Anlık Olarak Güncellenmesi
 ![Ekran görüntüsü 2024-08-25 153050](https://github.com/user-attachments/assets/76eaec76-12aa-42eb-b595-8e180af4059a)
 
+
+![Ekran görüntüsü 2024-08-25 154356](https://github.com/user-attachments/assets/ed9a619b-9604-4b8f-bee8-a0110b7fe470)
+![Ekran görüntüsü 2024-08-25 154413](https://github.com/user-attachments/assets/261bde80-d900-4260-a47f-50dacb176cef)
+![Ekran görüntüsü 2024-08-25 154507](https://github.com/user-attachments/assets/c28306d2-2e3d-4674-b14b-035c42acf326)
