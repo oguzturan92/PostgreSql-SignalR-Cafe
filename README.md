@@ -8,13 +8,13 @@
 - Kullanıcılar, sistem üzerinden rezervasyon yapabilir ve bu rezervasyon işlemleri sonrası otomatik olarak e-posta ile bilgilendirilirler. Bu özellik, müşteri memnuniyetini artırmak ve süreçleri otomatikleştirmek için özel olarak tasarlanmıştır.
 - Bu proje, kafe işletmelerine yönelik modern bir dijital çözüm sunarak, operasyonel verimliliği artırmak ve müşteri deneyimini iyileştirmek amacıyla geliştirilmiştir.
 
-# Ana Sayfa Verilerinin Belirli Kriterlere Göre Listelenmesi
+# Ana Sayfa Verilerinin Belirli Kriterlere Göre Listelenmesi - 1 
 ![Ekran görüntüsü 2024-08-25 153218](https://github.com/user-attachments/assets/705db88c-c144-4956-a5c7-6b710a778438)
 
-# Rezervasyon Formundan Ajax İle Rezervasyon Talebi Gönderilmesi
+# Ana Sayfa Verilerinin Belirli Kriterlere Göre Listelenmesi - 2 
 ![Ekran görüntüsü 2024-08-25 153234](https://github.com/user-attachments/assets/ed2f8676-de26-498d-b2d4-2bf2fa9ff276)
 
-# Ana Sayfa Verilerinin Belirli Kriterlere Göre Listelenmesi
+# Rezervasyon Formundan Ajax İle Rezervasyon Talebi Gönderilmesi
 ![Ekran görüntüsü 2024-08-25 153300](https://github.com/user-attachments/assets/a6929f75-b5c8-4b02-8b73-4462b507d4fd)
 
 # Ürün Listesi Ve Sayfalama
