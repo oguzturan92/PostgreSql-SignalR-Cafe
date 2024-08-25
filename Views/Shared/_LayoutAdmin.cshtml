@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Klassy Cafe Admin</title>
+</head>
+<body>
+
+    <div class="d-flex bg-light">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; min-height: 100vh;">
+            <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"></svg>
+                <span class="fs-4">Klassy Cafe</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a asp-controller="Home" asp-action="Index" class="nav-link text-white" aria-current="page">
+                        <svg class="bi me-2" width="16" height="16"></svg>
+                        Site
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Admin" asp-action="Index" class="nav-link text-white @ViewBag.admin">
+                        <svg class="bi me-2" width="16" height="16"></svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Banner" asp-action="List" class="nav-link text-white @ViewBag.banner">
+                        <svg class="bi me-2" width="16" height="16"></svg>
+                        Banner
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="About" asp-action="List" class="nav-link text-white @ViewBag.about">
+                        <svg class="bi me-2 " width="16" height="16"></svg>
+                        Hakkımızda
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Menu" asp-action="List" class="nav-link text-white @ViewBag.menu">
+                        <svg class="bi me-2" width="16" height="16"></svg>
+                        Menu
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Reservation" asp-action="List" class="nav-link text-white @ViewBag.reservation">
+                        <svg class="bi me-2" width="16" height="16"></svg>
+                        Rezervasyonlar
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Table" asp-action="List" class="nav-link text-white @ViewBag.table">
+                        <svg class="bi me-2" width="16" height="16"></svg>
+                        Masalar
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Category" asp-action="List" class="nav-link text-white @ViewBag.category">
+                        <svg class="bi me-2" width="16" height="16"></svg>
+                        Kategoriler
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Product" asp-action="List" class="nav-link text-white @ViewBag.product">
+                        <svg class="bi me-2" width="16" height="16"></svg>
+                        Ürünler
+                    </a>
+                </li>
+            </ul>
+            <hr>
+        </div>
+
+        @RenderBody()
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+		if ("@TempData["text"]" != "")
+		{
+			Swal.fire({
+				position: "center",
+				icon: "@TempData["icon"]",
+				html: "@TempData["text"]",
+				showConfirmButton: false,
+				timer: 2000
+			});
+		}
+    </script>
+
+</body>
+</html>

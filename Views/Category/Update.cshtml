@@ -1,0 +1,37 @@
+@model GetByIdCategoryDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="p-5 w-100">
+    <div class="container">
+        <h5 class="text-center">Kategori Güncelle</h5>
+        <hr>
+        <form asp-controller="Category" asp-action="Update" method="post">
+            <input type="hidden" asp-for="CategoryId">
+            <div class="mb-3">
+                <label for="CategoryImage" class="form-label">Resim</label>
+                <input type="text" class="form-control" asp-for="CategoryImage" id="CategoryImage">
+            </div>
+            <div class="mb-3">
+                <label for="CategoryName" class="form-label">Başlık</label>
+                <input type="text" class="form-control" asp-for="CategoryName" id="CategoryName">
+            </div>
+            <div class="mb-3">
+                <label for="CategoryRow" class="form-label">Sıra Numarası</label>
+                <input type="text" class="form-control" asp-for="CategoryRow" id="CategoryRow">
+            </div>
+            <div class="mb-3">
+                <label for="CategoryApproval" class="form-label">Onay Durumu</label>
+                <select class="form-control" asp-for="CategoryApproval" id="CategoryApproval">
+                    <option value="true">Aktif</option>
+                    <option value="false">Pasif</option>
+                </select>
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+            <a asp-controller="Category" asp-action="List" class="btn btn-dark">Geri</a>
+        </form>
+    </div>
+</div>

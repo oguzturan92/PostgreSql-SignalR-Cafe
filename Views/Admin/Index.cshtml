@@ -1,0 +1,96 @@
+@model AdminListDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_LayoutAdmin";
+}
+
+<style>
+    .row-0 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+</style>
+
+<div class="p-5 w-100">
+    <div class="container p-5">
+        <div class="row-0 p-5">
+            <div class="text-center text-light rounded-3 p-5 bg-primary" id="tableBox">
+                <i class="fa-solid fa-shake fa-2xl" id="1"></i>
+                <p class="fs-3">Masa</p>
+                <p class="fs-1" id="receiveTableIsFullCount">@Model.TableCount</p>
+            </div>
+            <div class="text-center text-light rounded-3 p-5 bg-success" id="reservationBox">
+                <i class="fa-solid fa-shake fa-2xl" id="2"></i>
+                <p class="fs-3">Rezervasyon</p>
+                <p class="fs-1" id="receiveReservationCount">@Model.ReservationCount</p>
+            </div>
+            <div class="text-center text-light rounded-3 p-5 bg-info" id="productBox">
+                <i class="fa-solid fa-shake fa-2xl" id="3"></i>
+                <p class="fs-3">Ürün</p>
+                <p class="fs-1" id="receiveProductCount">@Model.ProductCount</p>
+            </div>
+            <div class="text-center text-light rounded-3 p-5 bg-warning" id="categoryBox">
+                <i class="fa-solid fa-shake fa-2xl" id="4"></i>
+                <p class="fs-3">Kategori</p>
+                <p class="fs-1" id="receiveCategoryCount">@Model.CategoryCount</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/signalr/dist/browser/signalr.js"></script>
+    <script src="/signalr/dist/browser/signalr.min.js"></script>
+    <script>
+
+        var connection = new signalR.HubConnectionBuilder().withUrl("/signalrhub").build();
+
+        // Connection, Start olduktan sonra
+        connection.start().then(() => {
+
+            // Hub sınıfından gelen metodlar/yanıtlar
+            connection.on("ReceiveTableIsFullCount", function (value) {
+                if (!$("#1").hasClass("fa-bell") && $("#receiveTableIsFullCount").text() < value) {
+                    $("#1").addClass("fa-bell");
+                }
+                $("#receiveTableIsFullCount").text(value);
+            });
+            connection.on("ReceiveReservationCount", function (value) {
+                if (!$("#2").hasClass("fa-bell") && $("#receiveReservationCount").text() < value) {
+                    $("#2").addClass("fa-bell");
+                }
+                $("#receiveReservationCount").text(value);
+            });
+            connection.on("ReceiveProductCount", function (value) {
+                if (!$("#3").hasClass("fa-bell") && $("#receiveProductCount").text() < value) {
+                    $("#3").addClass("fa-bell");
+                }
+                $("#receiveProductCount").text(value);
+            });
+            connection.on("ReceiveCategoryCount", function (value) {
+                if (!$("#4").hasClass("fa-bell") && $("#receiveCategoryCount").text() < value) {
+                    $("#4").addClass("fa-bell");
+                }
+                $("#receiveCategoryCount").text(value);
+            });
+
+        }).catch((err) => { console.log(err) });
+
+    </script>
+    <script>
+        $("#tableBox").hover(function () {
+            $(this).find("#1").removeClass("fa-bell");
+        });
+        $("#reservationBox").hover(function () {
+            $(this).find("#2").removeClass("fa-bell");
+        });
+        $("#productBox").hover(function () {
+            $(this).find("#3").removeClass("fa-bell");
+        });
+        $("#categoryBox").hover(function () {
+            $(this).find("#4").removeClass("fa-bell");
+        });
+    </script>
+}

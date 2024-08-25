@@ -1,0 +1,46 @@
+@model GetByIdAboutDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="p-5 w-100">
+    <div class="container">
+        <h5 class="text-center">Hakkımızda Güncelle</h5>
+        <hr>
+        <form asp-controller="About" asp-action="Update" method="post">
+            <input type="hidden" asp-for="AboutId">
+            <div class="mb-3">
+                <label for="AboutLink" class="form-label">Video Link</label>
+                <input type="text" class="form-control" asp-for="AboutLink" id="AboutLink">
+            </div>
+            <div class="mb-3">
+                <label for="AboutTitle" class="form-label">Başlık</label>
+                <input type="text" class="form-control" asp-for="AboutTitle" id="AboutTitle">
+            </div>
+            <div class="mb-3">
+                <label for="AboutDescription" class="form-label">Açıklama</label>
+                <input type="text" class="form-control" asp-for="AboutDescription" id="AboutDescription">
+            </div>
+            <div class="mb-3">
+                <label for="AboutImage1" class="form-label">Resim 1</label>
+                <input type="text" class="form-control" asp-for="AboutImage1" id="AboutImage1">
+            </div>
+            <div class="mb-3">
+                <label for="AboutImage2" class="form-label">Resim 2</label>
+                <input type="text" class="form-control" asp-for="AboutImage2" id="AboutImage2">
+            </div>
+            <div class="mb-3">
+                <label for="AboutImage3" class="form-label">Resim 3</label>
+                <input type="text" class="form-control" asp-for="AboutImage3" id="AboutImage3">
+            </div>
+            <div class="mb-3">
+                <label for="AboutImage4" class="form-label">Resim 4</label>
+                <input type="text" class="form-control" asp-for="AboutImage4" id="AboutImage4">
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+            <a asp-controller="About" asp-action="List" class="btn btn-dark">Geri</a>
+        </form>
+    </div>
+</div>

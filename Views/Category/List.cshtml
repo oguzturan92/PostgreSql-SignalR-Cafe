@@ -1,0 +1,66 @@
+@model List<ResultCategoryDto>
+@{
+    ViewData["Title"] = "List";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="p-5 w-100">
+    <div class="container">
+        <h5 class="text-center">Kategori Listesi</h5>
+        <hr>
+        @if (Model.Any())
+        {
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr class="bg-dark text-light">
+                        <th scope="col">Sıra No</th>
+                        <th scope="col">Başlık</th>
+                        <th scope="col">Resim</th>
+                        <th scope="col">Onay Durumu</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CategoryRow</td>
+                            <td>@item.CategoryName</td>
+                            <td><img src="@item.CategoryImage" alt="" class="rounded-circle" style="height: 50px;"></td>
+                            <td>
+                                @if (item.CategoryApproval)
+                                {
+                                    <i class="fa-regular fa-circle-check text-success fa-lg"></i>
+                                } else
+                                {
+                                    <i class="fa-regular fa-circle-xmark text-danger fa-lg"></i>
+                                }
+                            </td>
+                            <td><a asp-controller="Category" asp-action="Update" asp-route-id="@item.CategoryId" class="btn btn-primary">Güncelle</a></td>
+                            <td><a asp-controller="Category" asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-danger">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        } else
+        {
+            <div class="alert alert-primary" role="alert">
+                Burası boş. Yeni bir öge ekleyin.
+            </div>
+        }
+        <hr>
+        <a asp-controller="Category" asp-action="Create" class="btn btn-success">Ekle</a>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/signalr/dist/browser/signalr.js"></script>
+    <script src="/signalr/dist/browser/signalr.min.js"></script>
+    <script>
+        var connection = new signalR.HubConnectionBuilder().withUrl("/signalrhub").build();
+        connection.start().then(() => {
+            connection.invoke("CategoryCount");
+        }).catch((err) => { console.log(err) });
+    </script>
+}

@@ -1,0 +1,89 @@
+@model List<HomeResultCategoryDto>
+    
+<section class="section" id="offers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4 text-center">
+                <div class="section-heading">
+                    <h6>Klassy Ürünleri</h6>
+                    <h2>Özel Ürünlerimizi Keşfedin</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row" id="tabs">
+                    <div class="col-lg-12">
+                        <div class="heading-tabs">
+                            <div class="row">
+                                <div class="col-lg-6 offset-lg-3">
+                                    <ul>
+                                        @foreach (var item in Model)
+                                        {
+                                            <li><a href='#@item.CategoryId'><img src="@item.CategoryImage" alt="">@item.CategoryName</a></li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <section class='tabs-content'>
+                            @foreach (var item in Model)
+                            {
+                                <article id='@item.CategoryId'>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="left-list">
+                                                    @for (int i = 0; i < item.Products.Count(); i++)
+                                                    {
+                                                        if (i % 2 == 0)
+                                                        {
+                                                            <div class="col-lg-12">
+                                                                <div class="tab-item">
+                                                                    <img src="@item.Products[i].ProductImage" alt="">
+                                                                    <h4>@item.Products[i].ProductName</h4>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                                    <div class="price">
+                                                                        <h6>@item.Products[i].ProductPrice.ToString("c")</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="right-list">
+                                                    @for (int i = 1; i < item.Products.Count(); i++)
+                                                    {
+                                                        if (i % 2 == 1)
+                                                        {
+                                                            <div class="col-lg-12">
+                                                                <div class="tab-item">
+                                                                    <img src="@item.Products[i].ProductImage" alt="">
+                                                                    <h4>@item.Products[i].ProductName</h4>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                                    <div class="price">
+                                                                        <h6>@item.Products[i].ProductPrice.ToString("c")</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>  
+                            }
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,38 @@
+@model List<ResultBannerDto>
+
+@if (Model.Any())
+{
+    <div id="top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="left-content">
+                        <div class="inner-content">
+                            <h4>@Model[0].BannerTitle</h4>
+                            <h6>@Model[0].BannerSubTitle</h6>
+                            <div class="main-white-button scroll-to-section">
+                                <a href="#reservation">Rezervasyon Yapın</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="main-banner header-text">
+                        <div class="Modern-Slider">
+                            
+                            @foreach (var item in Model)
+                            {
+                                <div class="item">
+                                    <div class="img-fill">
+                                        <img src="@item.BannerImage" alt="">
+                                    </div>
+                                </div>
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

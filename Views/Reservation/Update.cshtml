@@ -1,0 +1,46 @@
+@model GetByIdReservationDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="p-5 w-100">
+    <div class="container">
+        <h5 class="text-center">Reservasyon Güncelle</h5>
+        <hr>
+        <form asp-controller="Reservation" asp-action="Update" method="post">
+            <input type="hidden" asp-for="ReservationId">
+            <div class="mb-3">
+                <label for="ReservationFullname" class="form-label">Ad Soyad</label>
+                <input type="text" class="form-control" asp-for="ReservationFullname" id="ReservationFullname">
+            </div>
+            <div class="mb-3">
+                <label for="ReservationEmail" class="form-label">Email</label>
+                <input type="text" class="form-control" asp-for="ReservationEmail" id="ReservationEmail">
+            </div>
+            <div class="mb-3">
+                <label for="ReservationPhone" class="form-label">Telefon Numarası</label>
+                <input type="text" class="form-control" asp-for="ReservationPhone" id="ReservationPhone">
+            </div>
+            <div class="mb-3">
+                <label for="ReservationPerson" class="form-label">Kişi</label>
+                <input type="text" class="form-control" asp-for="ReservationPerson" id="ReservationPerson">
+            </div>
+            <div class="mb-3">
+                <label for="ReservationDate" class="form-label">Tarih</label>
+                <input type="text" class="form-control" asp-for="ReservationDate" id="ReservationDate">
+            </div>
+            <div class="mb-3">
+                <label for="ReservationTime" class="form-label">Saat</label>
+                <input type="text" class="form-control" asp-for="ReservationTime" id="ReservationTime">
+            </div>
+            <div class="mb-3">
+                <label for="ReservationBody" class="form-label">Mesaj</label>
+                <input type="text" class="form-control" asp-for="ReservationBody" id="ReservationBody">
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+            <a asp-controller="Reservation" asp-action="List" class="btn btn-dark">Geri</a>
+        </form>
+    </div>
+</div>

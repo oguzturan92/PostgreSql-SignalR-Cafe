@@ -1,0 +1,48 @@
+@model List<ResultAboutDto>
+@{
+    ViewData["Title"] = "List";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="p-5 w-100">
+    <div class="container">
+        <h5 class="text-center">Hakkımızda Listesi</h5>
+        <hr>
+        @if (Model.Any())
+        {
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr class="bg-dark text-light">
+                        <th scope="col">Başlık</th>
+                        <th scope="col">Resim 1</th>
+                        <th scope="col">Resim 2</th>
+                        <th scope="col">Resim 3</th>
+                        <th scope="col">Resim 4</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.AboutTitle</td>
+                            <td><img src="@item.AboutImage1" alt="" class="rounded-circle" style="height: 50px; width: 50px; object-fit: cover;"></td>
+                            <td><img src="@item.AboutImage2" alt="" class="rounded-circle" style="height: 50px; width: 50px; object-fit: cover;"></td>
+                            <td><img src="@item.AboutImage3" alt="" class="rounded-circle" style="height: 50px; width: 50px; object-fit: cover;"></td>
+                            <td><img src="@item.AboutImage4" alt="" class="rounded-circle" style="height: 50px; width: 50px; object-fit: cover;"></td>
+                            <td><a asp-controller="About" asp-action="Update" asp-route-id="@item.AboutId" class="btn btn-primary">Güncelle</a></td>
+                            <td><a asp-controller="About" asp-action="Delete" asp-route-id="@item.AboutId" class="btn btn-danger">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        } else
+        {
+            <div class="alert alert-primary" role="alert">
+                Burası boş. Yeni bir öge ekleyin.
+            </div>
+        }
+        <hr>
+        <a asp-controller="About" asp-action="Create" class="btn btn-success">Ekle</a>
+    </div>
+</div>

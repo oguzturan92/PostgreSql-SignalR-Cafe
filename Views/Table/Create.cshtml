@@ -1,0 +1,39 @@
+@model CreateTableDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="p-5 w-100">
+    <div class="container">
+        <h5 class="text-center">Tablo Ekle</h5>
+        <hr>
+        <form asp-controller="Table" asp-action="Create" method="post">
+            <div class="mb-3">
+                <label for="TableName" class="form-label">Başlık</label>
+                <input type="text" class="form-control" asp-for="TableName" id="TableName">
+            </div>
+            <div class="mb-3">
+                <label for="TableRow" class="form-label">Sıra Numarası</label>
+                <input type="text" class="form-control" asp-for="TableRow" id="TableRow">
+            </div>
+            <div class="mb-3">
+                <label for="TableIsFull" class="form-label">Doluluk Durumu</label>
+                <select class="form-control" asp-for="TableIsFull" id="TableIsFull">
+                    <option value="true">Dolu</option>
+                    <option value="false">Boş</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="TableIsFTableApprovalull" class="form-label">Onay Durumu</label>
+                <select class="form-control" asp-for="TableApproval" id="TableApproval">
+                    <option value="true">Aktif</option>
+                    <option value="false">Pasif</option>
+                </select>
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-success">Kaydet</button>
+            <a asp-controller="Table" asp-action="List" class="btn btn-dark">Geri</a>
+        </form>
+    </div>
+</div>

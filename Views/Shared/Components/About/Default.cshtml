@@ -1,0 +1,35 @@
+@model GetByIdAboutDto    
+    
+<section class="section" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="left-text-content">
+                    <div class="section-heading">
+                        <h6>Hakkımızda</h6>
+                        <h2>@Model.AboutTitle</h2>
+                    </div>
+                    <p>@Model.AboutDescription</p>
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="@Model.AboutImage2" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img src="@Model.AboutImage3" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img src="@Model.AboutImage4" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="right-content h-100">
+                    <div class="thumb h-100">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/PRAGLqfNK1o?si=8wdVdG4ZZtQRhVdV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

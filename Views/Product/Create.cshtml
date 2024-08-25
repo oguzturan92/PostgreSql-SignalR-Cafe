@@ -1,0 +1,54 @@
+@model CreateProductDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="p-5 w-100">
+    <div class="container">
+        <h5 class="text-center">Ürün Ekle</h5>
+        <hr>
+        <form asp-controller="Product" asp-action="Create" method="post">
+            <div class="mb-3">
+                <label for="ProductName" class="form-label">Başlık</label>
+                <input type="text" class="form-control" asp-for="ProductName" id="ProductName">
+            </div>
+            <div class="mb-3">
+                <label for="ProductSubTitle" class="form-label">Alt Başlık</label>
+                <input type="text" class="form-control" asp-for="ProductSubTitle" id="ProductSubTitle">
+            </div>
+            <div class="mb-3">
+                <label for="ProductPrice" class="form-label">Fiyat</label>
+                <input type="text" class="form-control" asp-for="ProductPrice" id="ProductPrice">
+            </div>
+            <div class="mb-3">
+                <label for="ProductImage" class="form-label">Resim</label>
+                <input type="text" class="form-control" asp-for="ProductImage" id="ProductImage">
+            </div>
+            <div class="mb-3">
+                <label for="ProductRow" class="form-label">Sıra Numarası</label>
+                <input type="text" class="form-control" asp-for="ProductRow" id="ProductRow">
+            </div>
+            <div class="mb-3">
+                <label for="ProductApproval" class="form-label">Onay Durumu</label>
+                <select class="form-control" asp-for="ProductApproval" id="ProductApproval">
+                    <option value="true">Aktif</option>
+                    <option value="false">Pasif</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="CategoryId" class="form-label">Sıra Numarası</label>
+                <select class="form-control" asp-for="CategoryId" id="CategoryId">
+                    @foreach (var item in ViewBag.categories)
+                    {
+                        <option value="@item.CategoryId">@item.CategoryName</option>
+                    }
+                </select>
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-success">Kaydet</button>
+            <a asp-controller="Product" asp-action="List" class="btn btn-dark">Geri</a>
+        </form>
+    </div>
+</div>
+

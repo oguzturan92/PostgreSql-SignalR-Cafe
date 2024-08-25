@@ -1,0 +1,41 @@
+@model GetByIdBannerDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="p-5 w-100">
+    <div class="container">
+        <h5 class="text-center">Banner Güncelle</h5>
+        <hr>
+        <form asp-controller="Banner" asp-action="Update" method="post">
+            <input type="hidden" asp-for="BannerId">
+            <div class="mb-3">
+                <label for="BannerTitle" class="form-label">Başlık</label>
+                <input type="text" class="form-control" asp-for="BannerTitle" id="BannerTitle">
+            </div>
+            <div class="mb-3">
+                <label for="BannerSubTitle" class="form-label">Alt Başlık</label>
+                <input type="text" class="form-control" asp-for="BannerSubTitle" id="BannerSubTitle">
+            </div>
+            <div class="mb-3">
+                <label for="BannerImage" class="form-label">Resim</label>
+                <input type="text" class="form-control" asp-for="BannerImage" id="BannerImage">
+            </div>
+            <div class="mb-3">
+                <label for="BannerRow" class="form-label">Sıra Numarası</label>
+                <input type="text" class="form-control" asp-for="BannerRow" id="BannerRow">
+            </div>
+            <div class="mb-3">
+                <label for="BannerApproval" class="form-label">Onay Durumu</label>
+                <select class="form-control" asp-for="BannerApproval" id="BannerApproval">
+                    <option value="true">Aktif</option>
+                    <option value="false">Pasif</option>
+                </select>
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+            <a asp-controller="Banner" asp-action="List" class="btn btn-dark">Geri</a>
+        </form>
+    </div>
+</div>

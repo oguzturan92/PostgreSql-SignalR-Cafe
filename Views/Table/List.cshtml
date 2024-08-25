@@ -1,0 +1,58 @@
+@model List<ResultTableDto>
+@{
+    ViewData["Title"] = "List";
+    Layout = "_LayoutAdmin";
+}
+
+<style>
+    .row-0 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+</style>
+
+<div class="p-5 w-100">
+    <div class="container">
+        <hr>
+        @if (Model.Any())
+        {
+            <div class="row-0">
+                @foreach (var item in Model)
+                {
+                    <div class="border text-center text-light rounded-3 p-5" style="background-color: @(item.TableIsFull ? "#dc354580":"#19875480");">
+                        <p class="fs-3">@item.TableName</p>
+                        <p class="fs-1">@(item.TableIsFull ? "DOLU":"BOŞ")</p>
+                        <a class="btn btn-primary" asp-controller="Table" asp-action="Update" asp-route-id="@item.TableId">Düzenle</a>
+                        @if (item.TableApproval)
+                        {
+                            <a class="btn @(item.TableIsFull ? "btn-light":"btn-danger")" asp-controller="Table" asp-action="Approval" asp-route-id="@item.TableId">@(item.TableIsFull ? "Boş Yap":"Dolu Yap")</a>
+                        } else
+                        {
+                            <button type="submit" class="btn btn-secondary" disabled>Kapalı Masa</button>
+                        }
+                    </div>
+                }
+            </div>
+        } else
+        {
+            <div class="alert alert-primary" role="alert">
+                Burası boş. Yeni bir öge ekleyin.
+            </div>
+        }
+        <hr>
+        <a asp-controller="Table" asp-action="Create" class="btn btn-success">Ekle</a>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/signalr/dist/browser/signalr.js"></script>
+    <script src="/signalr/dist/browser/signalr.min.js"></script>
+    <script>
+        var connection = new signalR.HubConnectionBuilder().withUrl("/signalrhub").build();
+        connection.start().then(() => {
+            connection.invoke("TableIsFullCount");
+        }).catch((err) => { console.log(err) });
+    </script>
+}

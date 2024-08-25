@@ -1,0 +1,44 @@
+@model CreateMenuDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="p-5 w-100">
+    <div class="container">
+        <h5 class="text-center">Menu Ekle</h5>
+        <hr>
+        <form asp-controller="Menu" asp-action="Create" method="post">
+            <div class="mb-3">
+                <label for="MenuImage" class="form-label">Resim</label>
+                <input type="text" class="form-control" asp-for="MenuImage" id="MenuImage">
+            </div>
+            <div class="mb-3">
+                <label for="MenuPrice" class="form-label">Fiyat</label>
+                <input type="text" class="form-control" asp-for="MenuPrice" id="MenuPrice">
+            </div>
+            <div class="mb-3">
+                <label for="MenuTitle" class="form-label">Başlık</label>
+                <input type="text" class="form-control" asp-for="MenuTitle" id="MenuTitle">
+            </div>
+            <div class="mb-3">
+                <label for="MenuSubTitle" class="form-label">Alt Başlık</label>
+                <input type="text" class="form-control" asp-for="MenuSubTitle" id="MenuSubTitle">
+            </div>
+            <div class="mb-3">
+                <label for="MenuRow" class="form-label">Sıra Numarası</label>
+                <input type="text" class="form-control" asp-for="MenuRow" id="MenuRow">
+            </div>
+            <div class="mb-3">
+                <label for="MenuApproval" class="form-label">Onay Durumu</label>
+                <select class="form-control" asp-for="MenuApproval" id="MenuApproval">
+                    <option value="true">Aktif</option>
+                    <option value="false">Pasif</option>
+                </select>
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-success">Kaydet</button>
+            <a asp-controller="Menu" asp-action="List" class="btn btn-dark">Geri</a>
+        </form>
+    </div>
+</div>
