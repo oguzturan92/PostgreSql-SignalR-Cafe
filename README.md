@@ -6,8 +6,7 @@
 - Projede ayrıca dependency injection yapısı benimsenmiş, bu sayede daha esnek ve sürdürülebilir bir kod yapısı elde edilmiştir.
 - Proje kapsamında, kategori ve ürün yönetimi için kapsamlı CRUD (Create, Read, Update, Delete) işlemleri gerçekleştirilmiştir.
 - Kullanıcılar, sistem üzerinden rezervasyon yapabilir ve bu rezervasyon işlemleri sonrası otomatik olarak e-posta ile bilgilendirilirler. Bu özellik, müşteri memnuniyetini artırmak ve süreçleri otomatikleştirmek için özel olarak tasarlanmıştır.
-
-Bu proje, kafe işletmelerine yönelik modern bir dijital çözüm sunarak, operasyonel verimliliği artırmak ve müşteri deneyimini iyileştirmek amacıyla geliştirilmiştir.
+- Bu proje, kafe işletmelerine yönelik modern bir dijital çözüm sunarak, operasyonel verimliliği artırmak ve müşteri deneyimini iyileştirmek amacıyla geliştirilmiştir.
 
 # Ana Sayfa Verilerinin Belirli Kriterlere Göre Listelenmesi
 ![Ekran görüntüsü 2024-08-25 153218](https://github.com/user-attachments/assets/705db88c-c144-4956-a5c7-6b710a778438)
